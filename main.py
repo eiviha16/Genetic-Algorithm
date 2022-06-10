@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 
 
 class GeneticAlgorithm:
-    def __init__(self, chromosome, max_number_of_chromosomes=100, mutation_rate=0.1, decay=10,
+    def __init__(self, chromosome, max_number_of_chromosomes=100, mutation_rate=0.1, decay=0.1,
                  elite_selection=0.01, epochs=200):
         # having an interface between this and the class the user calls means the user does not have to specify all the values, as there can be default values
         self.chromosomes = [chromosome]  # chromosome
@@ -30,7 +30,7 @@ class GeneticAlgorithm:
 
             elite = self.elite()
             mutations = self.mutate(self.highest_scoring_chromosomes,
-                                    number_of_mutations=int(self.chromosome_length * self.mutation_rate / self.decay))
+                                    number_of_mutations=int(self.chromosome_length * self.mutation_rate / (self.decay * i + 1)))
             crossover = self.crossover(self.highest_scoring_chromosomes)
 
             new_generation.extend(elite)
