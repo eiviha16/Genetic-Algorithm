@@ -6,7 +6,6 @@ from matplotlib import pyplot as plt
 class GeneticAlgorithm:
     def __init__(self, chromosome, max_number_of_chromosomes=100, mutation_rate=0.1, decay=0.1,
                  elite_selection=0.01, epochs=200):
-        # having an interface between this and the class the user calls means the user does not have to specify all the values, as there can be default values
         self.chromosomes = [chromosome]  # chromosome
         self.chromosome_length = len(chromosome)
         self.number_of_chromosomes = 1
